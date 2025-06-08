@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.kasir.controller.ProdukController"
+      spacing="10" style="-fx-padding: 15;">
+
+    <Label text="Daftar Produk" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="10.0">
+        <padding>
+            <Insets top="5" right="5" bottom="5" left="5"/>
+        </padding>
+        <TextField fx:id="namaProdukField" promptText="Nama Produk" />
+        <TextField fx:id="hargaProdukField" promptText="Harga" />
+        <Button fx:id="tambahButton" mnemonicParsing="false" onAction="#tambahProduk" text="Tambah" />
+    </VBox>
+
+    <ListView fx:id="listViewProduk" prefHeight="300"/>
+
+</VBox>

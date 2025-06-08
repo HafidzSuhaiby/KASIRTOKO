@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" spacing="10" style="-fx-padding: 15;">
+    <Label text="Histori Penjualan" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <TableView fx:id="historyTable" prefHeight="400" prefWidth="400">
+        <columns>
+            <TableColumn fx:id="colTanggal" text="Tanggal" prefWidth="120"/>
+            <TableColumn fx:id="colProduk" text="Produk" prefWidth="150"/>
+            <TableColumn fx:id="colJumlah" text="Jumlah" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+</VBox>

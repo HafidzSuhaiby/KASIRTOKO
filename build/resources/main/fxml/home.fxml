@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.cell.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.kasir.controller.HomeController">
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <HBox spacing="20">
+                <Label text="TOTAL" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+                <Label fx:id="labelTotal" text="0" style="-fx-text-fill: red; -fx-font-size: 48; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <VBox>
+                    <Label text="Banyak"/>
+                    <Label fx:id="labelJumlah" text="0" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+                </VBox>
+                <VBox>
+                    <Label text="Pelanggan"/>
+                    <HBox spacing="5">
+                        <ComboBox fx:id="comboPelanggan" prefWidth="150"/>
+                        <Button text="Tambah" onAction="#onTambahPelanggan"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox fx:id="printArea" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <VBox spacing="10">
+                <TableView fx:id="tableFaktur" prefWidth="700">
+                    <columns>
+                        <TableColumn fx:id="colKode" text="Kode" prefWidth="110"/>
+                        <TableColumn fx:id="colItem" text="Item" prefWidth="200"/>
+                        <TableColumn fx:id="colHarga" text="Harga" prefWidth="100"/>
+                        <TableColumn fx:id="colBanyak" text="Banyak" prefWidth="70"/>
+                        <TableColumn fx:id="colDiskon" text="Diskon" prefWidth="70"/>
+                        <TableColumn fx:id="colTotal" text="Total" prefWidth="150"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="5">
+                    <ComboBox fx:id="comboProduk" prefWidth="300"/>
+                    <Button text="+ Tambah" onAction="#onTambahProduk"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="10">
+                <ImageView fx:id="imageProduk" fitWidth="160" fitHeight="200" preserveRatio="true"/>
+
+                <VBox spacing="5">
+                    <Button fx:id="btnFakturBaru" text="F5 - Faktur Baru" onAction="#onFakturBaru"/>
+                    <Button fx:id="btnSimpan" text="F10 - Simpan" onAction="#onSimpan"/>
+                    <Button fx:id="btnPrint" text="F7 - Print" onAction="#onPrint"/>
+                    <Button fx:id="btnHapusFaktur" text="F9 - Hapus Faktur" onAction="#onHapusFaktur"/>
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <HBox spacing="20">
+                <VBox spacing="5">
+                    <Label text="Sub Total:"/>
+                    <Label text="Potongan (%):"/>
+                    <Label text="PPN:"/>
+                    <Label text="TOTAL:" style="-fx-font-weight: bold;"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label fx:id="labelSubTotal" text="0"/>
+                    <Label fx:id="labelPotongan" text="0"/>
+                    <Label fx:id="labelPPN" text="0"/>
+                    <Label fx:id="labelTotalBayar" text="0" style="-fx-font-weight: bold;"/>
+                </VBox>
+                <VBox spacing="5">
+                    <padding>
+                        <Insets left="40"/>
+                    </padding>
+                    <Label text="Dibayar:"/>
+                    <TextField fx:id="fieldDibayar"/>
+                    <Label text="Kembali:"/>
+                    <Label fx:id="labelKembali" text="0" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Tgl Faktur:"/>
+                <DatePicker fx:id="dateFaktur"/>
+                <Label text="No. Faktur:"/>
+                <TextField fx:id="fieldNoFaktur" prefWidth="200"/>
+                <Button fx:id="btnHapusBaris" text="F12 - Hapus Baris" onAction="#onHapusBaris"/>
+                <Button fx:id="btnExportXLS" text="F6 - File XLS" onAction="#onExportXLS"/>
+                <Button fx:id="btnRefreshProduk" text="F1 - Refresh Barang" onAction="#onRefreshProduk"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
